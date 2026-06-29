@@ -1,0 +1,41 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: /tmp/positions.yaml
+
+clients:
+  - url: http://loki:3100/loki/api/v1/push
+
+scrape_configs:
+
+  - job_name: 'system-logs'
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: 'system-logs'
+          device_type: 'jetson-orin-nx'
+          project: 'indian-railways'
+          __path__: /var/log/syslog
+
+  - job_name: 'jetson-application-logs'
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: 'jetson-app-logs'
+          device_type: 'jetson-orin-nx'
+          project: 'indian-railways'
+          __path__: /var/log/*.log
+
+  - job_name: 'openvpn-logs'
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: 'openvpn-logs'
+          device_type: 'jetson-orin-nx'
+          project: 'indian-railways'
+          __path__: /var/log/openvpn.log
