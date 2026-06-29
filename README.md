@@ -94,11 +94,14 @@ docker-compose logs -f
 
 | Detail | Info |
 |---|---|
-| **Deployed at** | Patil Rail Infrastructure Pvt Ltd |
-| **Use case** | Indian Railways PVIS-1 & PVIS-2 monitoring |
+| **Deployed at** | Cloud-native Monitoring & Logging Platform |
+| **Use case** | Remote monitoring of distributed edge devices PVIS 1 & PVIS 2 |
 | **Edge devices** | 75–85 NVIDIA Jetson Orin NX |
 | **Cloud** | AWS EC2 — Mumbai (ap-south-1) |
-| **VPN** | OpenVPN TAP/TUN with CCD static IPs |
+| **VPN** | OpenVPN (TUN/TAP with static client configuration) |
+| **Storage** | Amazon EBS for persistent monitoring data |
+| **Monitoring Stack** | Prometheus + Grafana + Loki + Promtail |
+| **Deployment** | Docker Compose
 | **Migration** | On-premises → AWS EC2 with EBS storage |
 
 ---
@@ -106,5 +109,5 @@ docker-compose logs -f
 ## Author
 
 **C Sengottuvelu**
-AWS Cloud & DevOps Engineer | SAA-C03 Certified
+AWS Cloud & DevOps Engineer | AWS Certified Solutions Architect – Associate (SAA-C03)
 Bengaluru, India
